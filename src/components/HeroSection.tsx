@@ -26,9 +26,9 @@ const HeroSection = () => {
         <div className="text-center max-w-5xl mx-auto">
           {/* Hero Headline */}
           <h1 className="text-hero mb-6 animate-fade-in-up">
-            Turn Your Data Into
+            Engineered for
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
-              Competitive Advantage
+              Clarity
             </span>
           </h1>
           
