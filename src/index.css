@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nebula Data Labs Design System - Dark Theme YC Startup */
+
+@layer base {
+  :root {
+    /* Nebula Data Labs Brand Colors */
+    --nebula-bg: 240 36% 16%;        /* #14143F */
+    --nebula-accent: 244 32% 51%;    /* #5D5AA6 */
+    --nebula-primary: 210 58% 55%;   /* #508CCA */
+    --nebula-cta: 193 85% 58%;       /* #38C4EE */
+    --nebula-white: 0 0% 100%;       /* #FFFFFF */
+    
+    /* Semantic Design System */
+    --background: var(--nebula-bg);
+    --foreground: var(--nebula-white);
+    
+    --card: 240 36% 18%;
+    --card-foreground: var(--nebula-white);
+    
+    --popover: 240 36% 20%;
+    --popover-foreground: var(--nebula-white);
+    
+    --primary: var(--nebula-cta);
+    --primary-foreground: var(--nebula-bg);
+    
+    --secondary: var(--nebula-accent);
+    --secondary-foreground: var(--nebula-white);
+    
+    --muted: 240 36% 22%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: var(--nebula-primary);
+    --accent-foreground: var(--nebula-white);
+    
+    --destructive: 0 75% 60%;
+    --destructive-foreground: var(--nebula-white);
+    
+    --border: 240 36% 25%;
+    --input: 240 36% 20%;
+    --ring: var(--nebula-cta);
+    
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--nebula-bg)), hsl(240 36% 12%));
+    --gradient-card: linear-gradient(145deg, hsl(240 36% 18%), hsl(240 36% 22%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--nebula-primary)), hsl(var(--nebula-cta)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--nebula-accent)), hsl(var(--nebula-primary)));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--nebula-cta) / 0.15);
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    --shadow-elegant: 0 20px 60px -20px hsl(var(--nebula-primary) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    background: hsl(var(--nebula-bg));
+    color: hsl(var(--nebula-white));
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Typography Scale */
+  .text-hero {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+  }
+  
+  .text-headline {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
+  }
+  
+  .text-subheadline {
+    @apply text-xl md:text-2xl font-medium text-muted-foreground;
+  }
+  
+  .text-body-large {
+    @apply text-lg leading-relaxed text-muted-foreground;
+  }
+  
+  .text-mono {
+    @apply font-mono;
+  }
+  
+  /* Button Variants */
+  .btn-cta {
+    @apply bg-primary text-primary-foreground hover:opacity-90 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--nebula-cta)/0.4)] hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary/20 text-secondary border border-secondary/30 hover:bg-secondary/30 px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+  
+  .btn-ghost {
+    @apply text-foreground hover:bg-muted px-4 py-2 rounded-lg font-medium transition-all duration-300;
+  }
+  
+  /* Card Styles */
+  .card-nebula {
+    background: var(--gradient-card);
+    @apply border border-border/50 rounded-2xl p-6 backdrop-blur-sm;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-service {
+    @apply card-nebula hover:border-accent/50 hover:shadow-[0_20px_40px_-20px_hsl(var(--nebula-accent)/0.3)] transition-all duration-500 hover:-translate-y-2;
+  }
+  
+  /* Section Animations */
+  .animate-fade-in-up {
+    @apply opacity-0 translate-y-8;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-fade-in-left {
+    @apply opacity-0 -translate-x-8;
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+  
+  .animate-fade-in-right {
+    @apply opacity-0 translate-x-8;
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+  
+  /* Stagger animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  
+  /* Navbar */
+  .navbar-glass {
+    @apply backdrop-blur-lg border-b border-border/20;
+    background: hsl(var(--nebula-bg) / 0.8);
+  }
+  
+  /* Tech Stack Pills */
+  .tech-pill {
+    @apply bg-muted/50 border border-border/30 text-foreground px-4 py-2 rounded-full text-sm font-mono hover:border-accent/50 hover:bg-accent/10 transition-all duration-300;
+  }
+
+/* Autocomplete Override Styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px hsl(var(--input)) inset !important;
+  -webkit-text-fill-color: hsl(var(--foreground)) !important;
+  background-color: hsl(var(--input)) !important;
+  color: hsl(var(--foreground)) !important;
+
+  /* Remove the white border */
+  border: 1px solid hsl(var(--border)) !important;
+
+  /* Optional: prevent animations or transitions breaking the effect */
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
