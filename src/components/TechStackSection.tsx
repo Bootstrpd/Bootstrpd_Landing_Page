@@ -2,10 +2,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const TechStackSection = () => {
   // Helper function to get icon path
-  const getTechIcon = (techName: string) => {
-    const iconName = techName.toLowerCase().replace(/\s+/g, '-').replace(/[&]/g, 'and');
-    return `/assets/${iconName}.svg`;
-  };
+const getTechIcon = (techName: string) => {
+  const iconName = techName
+    .toLowerCase()
+    .replace(/\s+/g, '-')        // Replace spaces with hyphens
+    .replace(/[&]/g, 'and')      // Replace &
+    .replace(/[.]/g, '')         // Remove dots (e.g., FastAPI)
+    .replace(/[^a-z0-9\-]/g, ''); // Remove other symbols
+  return `/assets/${iconName}.svg`;
+};
 
 const techStack = {
   'Analytics & Visualization': [
