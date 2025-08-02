@@ -4,7 +4,7 @@ const TechStackSection = () => {
   // Helper function to get icon path
   const getTechIcon = (techName: string) => {
     const iconName = techName.toLowerCase().replace(/\s+/g, '-').replace(/[&]/g, 'and');
-    return `src/assets/${iconName}.svg`;
+    return `/assets/${iconName}.svg`;
   };
 
 const techStack = {
