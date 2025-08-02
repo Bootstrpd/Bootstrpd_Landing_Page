@@ -7,26 +7,27 @@ const TechStackSection = () => {
     return `src/assets/${iconName}.svg`;
   };
 
-  const techStack = {
-    'Data Engineering': [
-      'Python', 'Apache Airflow', 'dbt', 'Apache Kafka', 'Docker', 'Kubernetes'
-    ],
-    'Machine Learning': [
-      'TensorFlow', 'PyTorch', 'Scikit-learn', 'Hugging Face', 'MLflow', 'Weights & Biases'
-    ],
-    'AI & LLMs': [
-      'OpenAI GPT', 'LangChain', 'LlamaIndex', 'Pinecone', 'Chroma', 'Anthropic Claude'
-    ],
-    'Cloud & Infrastructure': [
-      'AWS', 'Google Cloud', 'Azure', 'Snowflake', 'BigQuery', 'Databricks'
-    ],
-    'Analytics & Visualization': [
-      'Tableau', 'Power BI', 'Looker', 'Metabase', 'Streamlit', 'Plotly'
-    ],
-    'Databases': [
-      'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'ClickHouse', 'DuckDB'
-    ]
-  };
+const techStack = {
+  'Analytics & Visualization': [
+    'Power BI', 'GA4', 'GTM', 'Streamlit', 'Plotly'
+  ],
+  'AI & LLMs': [
+    'LangChain', 'Ollama',"FastAPI", 'Hugging Face', 'Chroma', "Pinecone", "qdrant"
+  ],
+  'Cloud & Infrastructure': [
+    'AWS', 'Google Cloud', 'Azure', 'Snowflake'
+  ],
+  'Databases': [
+    'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'Firebase', 'Supabase'
+  ],
+  'Machine Learning': [
+    'TensorFlow', 'PyTorch', 'Scikit-learn', 'Hugging Face', 'MLflow'
+  ],
+  'Data Engineering': [
+    'Python', 'Apache Airflow', 'Apache Kafka', 'Docker', 'Kubernetes'
+  ]
+};
+
 
   const categories = Object.keys(techStack);
 

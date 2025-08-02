@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" onClick={() => scrollToSection('home')} className="flex items-center space-x-2">
+          <a href="/" onClick={() => scrollToSection('home')} className="flex items-center space-x-2">
             <div className="flex items-center space-x-2">
                 <img src="/bootstrpd_favicon.svg" alt="Bootstrpd Logo" className="w-10 h-10" />
               <span className="text-xl font-semibold text-nebula-white">

@@ -2,18 +2,18 @@ import { Users, Award, Zap } from 'lucide-react';
 
 const AboutSection = () => {
   const stats = [
+      {
+    icon: Users,
+    number: '10+',
+    label: 'Projects Delivered',
+    description: 'Across startups, labs, and growth-stage teams'
+  },
     {
-      icon: Users,
-      number: '50+',
-      label: 'Companies Served',
-      description: 'From startups to Fortune 500'
-    },
-    {
-      icon: Award,
-      number: '99%',
-      label: 'Client Satisfaction',
-      description: 'Measured by project success'
-    },
+    icon: Award,
+    number: '100%',
+    label: 'Delivery Success Rate',
+    description: 'On-time and on-scope execution'
+  },
     {
       icon: Zap,
       number: '3x',
@@ -33,8 +33,8 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-6 text-body-large">
               <p>
-                We're a team of senior data engineers, ML scientists, and AI specialists 
-                who have built data infrastructure at companies like Uber, Airbnb, and Google.
+                We're a team of highly trained data engineers, machine learning practitioners, and AI specialists with a deep focus on building modern, scalable data systems.
+                Our experience comes from solving real-world problems through research-driven projects, startup collaborations, and intensive hands-on work across the data stack.
               </p>
               <p>
                 Our mission is simple: help fast-growing companies turn their data into 

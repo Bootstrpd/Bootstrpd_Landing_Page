@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, Calendar, Mail, Phone, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Calendar, Mail, Phone, MapPin, CheckCircle, AlertCircle, Rocket } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import {
   AlertDialog,
@@ -155,11 +155,12 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-nebula-accent focus:border-transparent outline-none transition-all duration-300 text-foreground placeholder-muted-foreground hover:border-accent"
+                      placeholder='John Doe'
                     />
                   </div>
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                      Company *
+                      Company Name *
                     </label>
                     <input
                       type="text"
@@ -169,6 +170,7 @@ const ContactSection = () => {
                       value={formData.company}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-nebula-accent focus:border-transparent outline-none transition-all duration-300 text-foreground placeholder-muted-foreground hover:border-accent"
+                      placeholder='Acme Corp'
                     />
                   </div>
                 </div>
@@ -186,6 +188,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-nebula-accent focus:border-transparent outline-none transition-all duration-300 text-foreground placeholder-muted-foreground hover:border-accent"
+                      placeholder='John@acmecorp.com'
                     />
                   </div>
                   <div>
@@ -199,6 +202,7 @@ const ContactSection = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-nebula-accent focus:border-transparent outline-none transition-all duration-300 text-foreground placeholder-muted-foreground hover:border-accent"
+                      placeholder='+20 XXXXXXXXXX'
                     />
                   </div>
                 </div>
@@ -281,9 +285,12 @@ const ContactSection = () => {
               </div>
 
               <div className="card-nebula border-nebula-cta/30">
-                <h4 className="font-semibold text-nebula-cta mb-3">
-                  🚀 Quick Start Available
-                </h4>
+                <div className="flex items-start gap-3 mb-3">
+                  <Rocket className="text-nebula-cta mt-1" size={20} />
+                  <h4 className="font-semibold text-nebula-cta">
+                    Quick Start Available
+                  </h4>
+                </div>
                 <p className="text-sm text-muted-foreground">
                   For urgent projects, we offer expedited onboarding. 
                   Mention "QUICK START" in your message to prioritize your request.

@@ -4,27 +4,27 @@ const ServicesSection = () => {
   const services = [
     {
       icon: BarChart3,
-      title: 'Dashboards & Business Intelligence',
-      description: 'Custom analytics dashboards, real-time reporting, and executive-level insights that drive data-driven decisions across your organization.',
-      features: ['Real-time Dashboards', 'Executive Reporting', 'KPI Tracking', 'Data Visualization']
+      title: 'Data Analytics & Business Intelligence',
+      description: 'Custom analytics dashboards, real-time reporting, and executive-level insights that drive KPI-focused, data-driven decisions across your organization.',
+      features: ['Real-Time Web & App Analytics', 'Conversion Funnel Optimization', 'Custom Interactive Dashboards', 'Cross-Platform Data Integration']
     },
     {
       icon: Bot,
       title: 'RAGs & AI Chatbots',
       description: 'Intelligent conversational AI powered by your proprietary data. Build chatbots that understand your business context and provide accurate responses.',
-      features: ['Custom RAG Systems', 'Knowledge Base Integration', 'Multi-modal AI', 'Enterprise Security']
+      features: ['Custom RAG Architectures', 'Knowledge Base Integration', 'Context-Aware Chatbot Deployment', 'Enterprise Security']
     },
     {
       icon: Brain,
-      title: 'Data Science & ML Services',
+      title: 'Data Science & ML',
       description: 'From predictive analytics to computer vision, we build and deploy machine learning models that solve your most complex business challenges.',
-      features: ['Predictive Modeling', 'NLP & Computer Vision', 'MLOps Pipelines', 'Model Monitoring']
+      features: ['Predictive Modeling & Forecasting', 'NLP & Computer Vision', 'Model Monitoring & Maintainance', 'MLOps Pipelines']
     },
     {
       icon: Database,
       title: 'Data Engineering & Infrastructure',
       description: 'Scalable data pipelines, modern data warehouses, and robust infrastructure that grows with your business needs.',
-      features: ['ETL/ELT Pipelines', 'Data Warehousing', 'Stream Processing', 'Cloud Infrastructure']
+      features: ['ETL/ELT Pipelines', 'Data Warehousing', 'Cloud Infrastructure', 'Real-Time & Stream Data Processing']
     }
   ];
 

@@ -7,7 +7,7 @@ const ProcessSection = () => {
       number: '01',
       title: 'Discovery',
       description: 'We start with a comprehensive analysis of your current data landscape, business objectives, and technical requirements.',
-      duration: '1-2 weeks',
+      duration: 'First Meeting',
       deliverables: ['Technical Audit', 'Requirements Doc', 'Architecture Plan']
     },
     {
@@ -23,7 +23,7 @@ const ProcessSection = () => {
       number: '03',
       title: 'Delivery',
       description: 'Our team executes the project with regular check-ins, transparent progress tracking, and iterative feedback.',
-      duration: '4-12 weeks',
+      duration: '2-6 weeks',
       deliverables: ['MVP Delivery', 'Documentation', 'Training Materials']
     },
     {
