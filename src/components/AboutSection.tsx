@@ -29,7 +29,7 @@ const AboutSection = () => {
           {/* Content */}
           <div className="animate-fade-in-left">
             <h2 className="text-headline mb-6">
-              About <span className="text-nebula-cta">boorstrpd</span>
+              About <span className="text-nebula-cta">bootstrpd</span>
             </h2>
             <div className="space-y-6 text-body-large">
               <p>

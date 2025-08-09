@@ -20,7 +20,8 @@ export default {
 		extend: {
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
-				'mono': ['JetBrains Mono', 'monospace'],
+				'mono': ['IBM Plex Mono', 'JetBrains Mono', 'monospace'],
+				'logo': ['Logo Font', 'sans-serif'],
 			},
 			colors: {
 				// Nebula Brand Colors

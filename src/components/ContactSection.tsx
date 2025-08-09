@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { Send, Calendar, Mail, Phone, MapPin, CheckCircle, AlertCircle, Rocket } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import '@/styles/phone-input.css';
+import { isValidPhoneNumber, getCountries } from 'react-phone-number-input';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,14 +16,44 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
+const allowedCountries = getCountries().filter(countryCode => countryCode !== 'IL');
+
+const CustomPhoneInput = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
+  (props, ref) => (
+    <input
+      {...props}
+      ref={ref}
+      id="phone"
+      type="tel"
+      className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-nebula-accent focus:border-transparent outline-none transition-all duration-300 text-foreground placeholder-muted-foreground hover:border-accent"
+    />
+  )
+);
+CustomPhoneInput.displayName = 'CustomPhoneInput';
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     email: '',
-    phone: '',
     message: ''
   });
+
+  const [phoneNumber, setPhoneNumber] = useState<string | undefined>();
+  const [phoneError, setPhoneError] = useState<string>('');
+  const [defaultCountry, setDefaultCountry] = useState<any>('US');
+
+  // Detect user's country from browser locale
+  useEffect(() => {
+    try {
+      const locale = navigator.language;
+      const countryCode = locale.split('-')[1] || 'US';
+      setDefaultCountry(countryCode);
+    } catch (error) {
+      // Fallback to US if detection fails
+      setDefaultCountry('US');
+    }
+  }, []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -36,6 +71,13 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Validate phone number
+    if (phoneNumber && !isValidPhoneNumber(phoneNumber)) {
+      setPhoneError('Please enter a valid phone number');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       // Insert form data into Supabase
       const { data, error } = await supabase
@@ -45,7 +87,7 @@ const ContactSection = () => {
             full_name: formData.name,
             company: formData.company,
             email: formData.email,
-            phone: formData.phone,
+            phone: phoneNumber || null, // Store in E.164 format
             message: formData.message || null,
             created_at: new Date().toISOString()
           }
@@ -72,9 +114,10 @@ const ContactSection = () => {
           name: '',
           company: '',
           email: '',
-          phone: '',
           message: ''
         });
+        setPhoneNumber(undefined);
+        setPhoneError('');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -94,6 +137,14 @@ const ContactSection = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handlePhoneChange = (value: string | undefined) => {
+    setPhoneNumber(value);
+    // Clear error when user starts typing
+    if (phoneError) {
+      setPhoneError('');
+    }
   };
 
   const contactInfo = [
@@ -195,15 +246,18 @@ const ContactSection = () => {
                     <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                       Phone Number *
                     </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-nebula-accent focus:border-transparent outline-none transition-all duration-300 text-foreground placeholder-muted-foreground hover:border-accent"
-                      placeholder='+20 XXXXXXXXXX'
+                    <PhoneInput
+                      international
+                      defaultCountry={defaultCountry}
+                      countries={allowedCountries}
+                      value={phoneNumber}
+                      onChange={handlePhoneChange}
+                      className="phone-input"
+                      inputComponent={CustomPhoneInput}
                     />
+                    {phoneError && (
+                      <p className="text-red-400 text-sm mt-1">{phoneError}</p>
+                    )}
                   </div>
                 </div>
 

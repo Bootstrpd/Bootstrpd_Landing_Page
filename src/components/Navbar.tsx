@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-2">
                 <img src="/bootstrpd_favicon.svg" alt="Bootstrpd Logo" className="w-10 h-10" />
               <span className="text-xl font-semibold text-nebula-white">
-                <span className="text-nebula-cta">bootstrpd</span>
+                <span className="text-nebula-cta font-logo">bootstrpd</span>
               </span>
             </div>
           </a>

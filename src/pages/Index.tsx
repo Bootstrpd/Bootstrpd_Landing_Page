@@ -48,11 +48,11 @@ const Index = () => {
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <img src="/bootstrpd_favicon.svg" alt="Bootstrpd Logo" className="w-10 h-10" />
               <span className="text-lg font-semibold text-nebula-white">
-                <span className="text-nebula-cta">bootstrpd</span>
+                <span className="text-nebula-cta font-logo">bootstrpd</span>
               </span>
             </div>
             <div className="text-sm text-muted-foreground">
-              © 2025 bootstrpd. All rights reserved.
+              © 2025 <span className="font-logo">bootstrpd</span>. All rights reserved.
             </div>
           </div>
         </div>
