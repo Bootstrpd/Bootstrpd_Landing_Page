@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
@@ -51,8 +52,16 @@ const Index = () => {
                 <span className="text-nebula-cta font-logo">bootstrpd</span>
               </span>
             </div>
-            <div className="text-sm text-muted-foreground">
-              © 2025 <span className="font-logo">bootstrpd</span>. All rights reserved.
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-sm text-muted-foreground">
+              <p>© 2025 <span className="font-logo">bootstrpd</span>. All rights reserved.</p>
+              <div className="flex items-center gap-4">
+                <Link to="/privacy" className="hover:text-nebula-cta transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link to="/terms" className="hover:text-nebula-cta transition-colors">
+                  Terms of Service
+                </Link>
+              </div>
             </div>
           </div>
         </div>
